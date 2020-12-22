@@ -1,0 +1,28 @@
+.payment__container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 20px auto;
+  background-color: white;
+}
+
+.payment__checkouttile {
+  padding: 20px;
+  text-align: center;
+}
+
+.payment__section {
+  border: 1px solid lightgray;
+  display: flex;
+  padding: 25px;
+  height: fit-content;
+  flex: 0.8;
+}
+
+.payment__title {
+  flex: 0.2;
+}
+
+.payment__card {
+  flex: 0.8;
+}
