@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Product from "./Product";
 import { useStateValue } from './StateProvider';
 import CheckoutProduct from './CheckoutProduct';
@@ -6,7 +6,7 @@ import "./Payment.css"
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
 import { calculateBasketTotal } from "./Reducer";
-import axios from './axios';
+import axios from './Axios';
 import { useHistory } from 'react-router-dom';
 
 function Payment() {
@@ -21,7 +21,7 @@ function Payment() {
     const [disabled, setDisable] = useState(true);
     const [succeeded, setSucceeded] = useState(false);
     const [processing, setProcessing] = useState("");
-    const [clientSecret, setClientSecret] = useState("");
+    const [clientSecret, setClientSecret] = useState(true);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -32,11 +32,15 @@ function Payment() {
                 card: element.getElement(CardElement)
             }
         }).then(({ paymentIntent }) => {
+            // Payment Intent-confirmation
+
+
+
             setSucceeded(true);
             setError(null);
             setProcessing(false);
 
-            history.replaceState("/orders")
+            history.replace("/orders")
         })
 
     }
@@ -48,11 +52,13 @@ function Payment() {
                 method: 'POST',
                 url: `/payment/create?total=${calculateBasketTotal(basket) * 100}`
             })
-            setClientSecret(response);
+            setClientSecret(response.data.clientSecret);
         }
 
         getClientSecretId();
     }, [basket])
+
+    console.log("THe SECRET IS ============>", clientSecret);
 
     const handleChange = (e) => {
         setDisable(e.empty);
