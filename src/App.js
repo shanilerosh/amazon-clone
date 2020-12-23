@@ -3,6 +3,7 @@ import "./App.css";
 import Header from "./Header";
 import Home from "./Home";
 import Login from "./Login";
+import Orders from "./Orders";
 import Checkout from "./Checkout";
 import { useEffect } from "react";
 import { auth } from "./firebase";
@@ -39,6 +40,10 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Switch>
+          <Route path="/orders">
+            <Header />
+            <Orders />
+          </Route>
           <Route path="/signin">
             <Login />
           </Route>

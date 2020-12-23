@@ -26,3 +26,13 @@
 .payment__card {
   flex: 0.8;
 }
+
+.payment__finalize__button {
+  background: #f0c14b;
+  border: 1px solid;
+  margin-top: 10px;
+  border-color: black;
+  color: #111;
+  width: 20%;
+  padding: 10px;
+}

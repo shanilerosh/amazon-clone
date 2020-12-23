@@ -3,7 +3,7 @@ import "./CheckoutProduct.css";
 import { useStateValue } from "./StateProvider";
 
 const CheckoutProduct = forwardRef(
-  ({ id, title, price, image, rating }, ref) => {
+  ({ id, title, price, image, rating, hideButton }, ref) => {
     const [{ basket }, setBasket] = useStateValue();
 
     const removeitem = () => {
@@ -24,9 +24,11 @@ const CheckoutProduct = forwardRef(
               return <p>⭐</p>;
             })}
           </div>
-          <button className="checkoutProduct__button" onClick={removeitem}>
-            Remove From Bucket
-          </button>
+          {!hideButton && (
+            <button className="checkoutProduct__button" onClick={removeitem}>
+              Remove From Bucket
+            </button>
+          )}
         </div>
       </div>
     );

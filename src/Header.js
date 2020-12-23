@@ -42,8 +42,8 @@ function Header() {
         </Link>
         <div className="header__option">
           <span className="header__optionLineOne">Hello User</span>
-          <Link to="/signin">
-            <span className="header__optionLineTwo">Sign In</span>
+          <Link to="/orders">
+            <span className="header__optionLineTwo">Orders</span>
           </Link>
         </div>
         <div className="header__option">

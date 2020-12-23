@@ -8,6 +8,7 @@ import CurrencyFormat from "react-currency-format";
 import { calculateBasketTotal } from "./Reducer";
 import axios from './Axios';
 import { useHistory } from 'react-router-dom';
+import { db } from "./firebase";
 
 function Payment() {
 
@@ -33,6 +34,15 @@ function Payment() {
             }
         }).then(({ paymentIntent }) => {
             // Payment Intent-confirmation
+            db.collection('users').
+                doc(user?.uid).
+                collection('orders').
+                doc(paymentIntent.id).
+                set({
+                    basket: basket,
+                    amount: paymentIntent.amount,
+                    created: paymentIntent.created
+                })
 
 
 
@@ -40,7 +50,10 @@ function Payment() {
             setError(null);
             setProcessing(false);
 
-            history.replace("/orders")
+            dispatch({
+                type: "EMPTY_BASKET",
+            })
+            history.replace("/orders");
         })
 
     }
@@ -85,7 +98,8 @@ function Payment() {
                 </div>
 
                 <div className="payment__stripe">
-                    {basket.map((item) => {
+                    {basket?.map((item) => {
+                        console.log("basket map", item);
                         return <CheckoutProduct
                             id={item.id}
                             title={item.title}
@@ -116,7 +130,7 @@ function Payment() {
                                 thousandsSeparator={true}
                                 prefix={"$"}
                             />
-                            <button disabled={processing || succeeded || disabled}>
+                            <button disabled={processing || succeeded || disabled} className="payment__finalize__button">
                                 <span>{processing ? <p>Processing</p> : "Buy now"}</span>
                             </button>
                         </div>
