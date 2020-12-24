@@ -1,8 +1,10 @@
 import React from "react";
 import "./Home.css";
 import Product from "./Product";
+import { useStateValue } from "./StateProvider";
 
 function Home() {
+  const [{ searchRenderList }, set] = useStateValue();
   return (
     <div className="Home">
       <div className="home__container">
@@ -12,48 +14,18 @@ function Home() {
           alt=""
         />
       </div>
-
       <div className="home__row">
-        <Product
-          title="The Suble Art of not giving"
-          price={29.99}
-          image="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F68.media.tumblr.com%2Ffecffc82729d14922c308aec3ff93fe9%2Ftumblr_or6m9wsz3I1qaouh8o1_400.png&f=1&nofb=1"
-          rating={5}
-          id={1}
-        />
-        <Product
-          title="The Suble Art of not giving"
-          price={29.99}
-          image="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F68.media.tumblr.com%2Ffecffc82729d14922c308aec3ff93fe9%2Ftumblr_or6m9wsz3I1qaouh8o1_400.png&f=1&nofb=1"
-          rating={5}
-          id={2}
-        />
-      </div>
-      <div className="home__row">
-        <Product
-          title="The Suble Art of not giving"
-          price={29.99}
-          image="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F68.media.tumblr.com%2Ffecffc82729d14922c308aec3ff93fe9%2Ftumblr_or6m9wsz3I1qaouh8o1_400.png&f=1&nofb=1"
-          rating={5}
-          id={3}
-        />
-        <Product
-          title="The Suble Art of not giving"
-          price={29.99}
-          image="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F68.media.tumblr.com%2Ffecffc82729d14922c308aec3ff93fe9%2Ftumblr_or6m9wsz3I1qaouh8o1_400.png&f=1&nofb=1"
-          rating={5}
-          id={4}
-        />
-        <Product
-          title="The Suble Art of not giving"
-          price={29.99}
-          image="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F68.media.tumblr.com%2Ffecffc82729d14922c308aec3ff93fe9%2Ftumblr_or6m9wsz3I1qaouh8o1_400.png&f=1&nofb=1"
-          rating={5}
-          id={5}
-        />
-      </div>
-      <div className="home__row">
-        <Product />
+        {searchRenderList.map((item) => {
+          return (
+            <Product
+              title={item.title}
+              id={item.id}
+              price={item.price}
+              rating={item.rating}
+              image={item.image}
+            />
+          );
+        })}
       </div>
     </div>
   );

@@ -18,6 +18,7 @@ const promise = loadStripe(
 
 function App() {
   const [{}, dispatch] = useStateValue();
+  const [{ basket, user }, dis] = useStateValue();
 
   useEffect(() => {
     auth.onAuthStateChanged((auth) => {

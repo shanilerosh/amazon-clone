@@ -1,6 +1,91 @@
+const data = [
+  {
+    title: "The Suble Art of not giving",
+    id: 1,
+    price: 29.99,
+    rating: 5,
+    image:
+      "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F68.media.tumblr.com%2Ffecffc82729d14922c308aec3ff93fe9%2Ftumblr_or6m9wsz3I1qaouh8o1_400.png&f=1&nofb=1",
+  },
+  {
+    title: "Pineapple",
+    id: 2,
+    price: 29.99,
+    rating: 5,
+    image:
+      "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F68.media.tumblr.com%2Ffecffc82729d14922c308aec3ff93fe9%2Ftumblr_or6m9wsz3I1qaouh8o1_400.png&f=1&nofb=1",
+  },
+  {
+    title: "The Suble Art of not giving",
+    id: 3,
+    price: 29.99,
+    rating: 5,
+    image:
+      "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F68.media.tumblr.com%2Ffecffc82729d14922c308aec3ff93fe9%2Ftumblr_or6m9wsz3I1qaouh8o1_400.png&f=1&nofb=1",
+  },
+  {
+    title: "The Suble Art of not giving",
+    id: 4,
+    price: 29.99,
+    rating: 5,
+    image:
+      "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F68.media.tumblr.com%2Ffecffc82729d14922c308aec3ff93fe9%2Ftumblr_or6m9wsz3I1qaouh8o1_400.png&f=1&nofb=1",
+  },
+  {
+    title: "The Suble Art of not giving",
+    id: 5,
+    price: 29.99,
+    rating: 5,
+    image:
+      "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F68.media.tumblr.com%2Ffecffc82729d14922c308aec3ff93fe9%2Ftumblr_or6m9wsz3I1qaouh8o1_400.png&f=1&nofb=1",
+  },
+  {
+    title: "The Suble Art of not giving",
+    id: 6,
+    price: 29.99,
+    rating: 5,
+    image:
+      "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F68.media.tumblr.com%2Ffecffc82729d14922c308aec3ff93fe9%2Ftumblr_or6m9wsz3I1qaouh8o1_400.png&f=1&nofb=1",
+  },
+  {
+    title: "The Suble Art of not giving",
+    id: 7,
+    price: 29.99,
+    rating: 5,
+    image:
+      "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F68.media.tumblr.com%2Ffecffc82729d14922c308aec3ff93fe9%2Ftumblr_or6m9wsz3I1qaouh8o1_400.png&f=1&nofb=1",
+  },
+  {
+    title: "The Suble Art of not giving",
+    id: 8,
+    price: 29.99,
+    rating: 5,
+    image:
+      "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F68.media.tumblr.com%2Ffecffc82729d14922c308aec3ff93fe9%2Ftumblr_or6m9wsz3I1qaouh8o1_400.png&f=1&nofb=1",
+  },
+  {
+    title: "The Suble Art of not giving",
+    id: 9,
+    price: 29.99,
+    rating: 5,
+    image:
+      "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F68.media.tumblr.com%2Ffecffc82729d14922c308aec3ff93fe9%2Ftumblr_or6m9wsz3I1qaouh8o1_400.png&f=1&nofb=1",
+  },
+  {
+    title: "The Suble Art of not giving",
+    id: 10,
+    price: 29.99,
+    rating: 5,
+    image:
+      "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F68.media.tumblr.com%2Ffecffc82729d14922c308aec3ff93fe9%2Ftumblr_or6m9wsz3I1qaouh8o1_400.png&f=1&nofb=1",
+  },
+];
+
 export const initialState = {
   basket: [],
   user: null,
+  items: data,
+  searchRenderList: data,
 };
 
 // Adding a selector
@@ -33,6 +118,18 @@ const reducer = (state, action) => {
       }
     case "EMPTY_BASKET":
       return { ...state, basket: [] };
+    case "SEARCH":
+      if (action.searchItem.toString() == "") {
+        return { ...state, searchRenderList: state.items };
+      } else {
+        const itemSet = state.items.filter((item) => {
+          return item.title
+            .toString()
+            .toLowerCase()
+            .match(action.searchItem.toString().toLowerCase());
+        });
+        return { ...state, searchRenderList: itemSet };
+      }
     default:
       return state;
   }
