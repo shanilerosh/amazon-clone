@@ -1,18 +1,12 @@
 # Amazon Clone - Online Store
 
----
-
 This project has been conducted using react and Firebase.In order to proceed with the credit card payments stripe library has been used.Customer has given the facilities such as Viewing the porducts,Adding products to the bucket,making a credit card payment,viewing all the orders of the customer.More functionalities are there to update
 
 # Mortivation
 
----
-
 Improving my react skills
 
 # Tech/framework used
-
----
 
 ▪ React
 ▪ Firebase
@@ -20,7 +14,7 @@ Improving my react skills
 ▪ Matial-UI
 
 🚀 🚀 Build Instructions / How to start the project
-
+---
 1.) Downloard/clone the Contributor branch of the repository
 2.) Open terminal/command prompt
 3.) cd (change directory) in to the project folder
