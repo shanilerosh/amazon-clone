@@ -16,22 +16,22 @@ Improving my react skills
 
 # Tech/framework used
 
----
-
-▪ React
-▪ Firebase
-▪ Stripe
-▪ Matial-UI
+* React
+* Firebase
+* Stripe
+* Matial-UI
 
 🚀 🚀 Build Instructions / How to start the project
 
-1.) Downloard/clone the Contributor branch of the repository
-2.) Open terminal/command prompt
-3.) cd (change directory) in to the project folder
-4.) Run npm install in your terminal
-5.) Run npm start to run on React Front End
-6.) Open another terminal and navigate to functions folder
-7.) Run firebase emulators:start to start the firebase server
+---
+
+* Downloard/clone the Contributor branch of the repository
+* Open terminal/command prompt
+* cd (change directory) in to the project folder
+* Run npm install in your terminal
+* Run npm start to run on React Front End
+* Open another terminal and navigate to functions folder
+* Run firebase emulators:start to start the firebase server
 
 Open your browser and navigate to http://localhost:3000/ Vola
 
