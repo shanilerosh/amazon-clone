@@ -1,7 +1,7 @@
 import React from "react";
-import "./Home.css";
+import "./styling/Home.css";
 import Product from "./Product";
-import { useStateValue } from "./StateProvider";
+import { useStateValue } from "../StateProvider";
 
 function Home() {
   const [{ searchRenderList }, set] = useStateValue();

@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
-import "./CheckoutProduct.css";
-import { useStateValue } from "./StateProvider";
+import "./styling/CheckoutProduct.css";
+import { useStateValue } from "../StateProvider";
 
 const CheckoutProduct = forwardRef(
   ({ id, title, price, image, rating, hideButton }, ref) => {
