@@ -29,7 +29,7 @@ Open your browser and navigate to http://localhost:3000/ Vola
 # Screenshots
 
 ---
-[https://ibb.co/SNLMYXR]
+![Sign In](https://ibb.co/T8H48Dg "Sign In")
 [https://ibb.co/T8H48Dg]
 
 ## Contributing
