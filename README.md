@@ -8,10 +8,10 @@ Improving my react skills
 
 # Tech/framework used
 
-▪ React
-▪ Firebase
-▪ Stripe
-▪ Matial-UI
+* React
+* Firebase
+* Stripe
+* Matial-UI
 
 🚀 🚀 Build Instructions / How to start the project
 ---
@@ -29,7 +29,8 @@ Open your browser and navigate to http://localhost:3000/ Vola
 # Screenshots
 
 ---
-
+[https://ibb.co/SNLMYXR]
+[https://ibb.co/T8H48Dg]
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
