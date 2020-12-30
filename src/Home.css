@@ -8,9 +8,11 @@
 }
 
 .home__row {
-  display: flex;
+  display: grid;
   z-index: 1;
   margin: 0 5px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 }
 
 .home__image {
@@ -19,7 +21,6 @@
   z-index: -1;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
 }
-
 
 .product__button {
   background: #f0c14b;

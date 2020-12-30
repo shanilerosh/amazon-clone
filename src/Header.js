@@ -5,7 +5,6 @@ import ShoppingBasketIcon from "@material-ui/icons/ShoppingBasket";
 import { Link } from "react-router-dom";
 import { useStateValue } from "./StateProvider";
 import { auth } from "./firebase";
-const Suggestions = require("suggestions");
 
 function Header() {
   const [{ basket, user, items }, dispatch] = useStateValue();
@@ -14,18 +13,6 @@ function Header() {
     if (user) {
       auth.signOut();
     }
-  };
-
-  const inputSugestion = () => {
-    console.log("use efect");
-    const typehead = new Suggestions(
-      document.querySelector("#header__searchInp"),
-      items,
-      {
-        minLength: 2,
-        limit: 4,
-      }
-    );
   };
 
   return (
